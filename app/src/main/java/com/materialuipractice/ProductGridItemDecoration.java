@@ -18,9 +18,11 @@ public class ProductGridItemDecoration extends RecyclerView.ItemDecoration {
     public void getItemOffsets(Rect outRect, View view,
                                RecyclerView parent, RecyclerView.State state) {
         outRect.left = smallPadding;
-        outRect.right = smallPadding;
-        outRect.top = largePadding;
-        outRect.bottom = largePadding;
+        outRect.right = largePadding;
+//        outRect.left = smallPadding;
+//        outRect.right = smallPadding;
+//        outRect.top = largePadding;
+//        outRect.bottom = largePadding;
     }
 
 }

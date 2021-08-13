@@ -16,6 +16,9 @@
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.2821557971014493" />
         <entry key="app/src/main/res/layout/fragment_product_grid.xml" value="0.26992753623188404" />
         <entry key="app/src/main/res/layout/shr_product_card.xml" value="0.1921875" />
+        <entry key="app/src/main/res/layout/shr_staggered_product_card_first.xml" value="0.2513586956521739" />
+        <entry key="app/src/main/res/layout/shr_staggered_product_card_second.xml" value="0.2513586956521739" />
+        <entry key="app/src/main/res/layout/shr_staggered_product_card_third.xml" value="0.2513586956521739" />
         <entry key="app/src/main/res/menu/shr_toolbar_menu.xml" value="0.1921875" />
       </map>
     </option>
