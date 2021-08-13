@@ -1,4 +1,4 @@
-package com.materialuipractice.network;
+package com.materialuipractice.data;
 
 import android.content.res.Resources;
 import android.net.Uri;
@@ -40,7 +40,8 @@ public class ProductEntry {
     /**
      * Loads a raw JSON at R.raw.products and converts it into a list of ProductEntry objects
      */
-    public static List<ProductEntry> initProductEntryList(Resources resources) {
+    public static List<ProductEntry> initProductEntryList_FromFile(Resources resources) {
+
         InputStream inputStream = resources.openRawResource(R.raw.products);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];

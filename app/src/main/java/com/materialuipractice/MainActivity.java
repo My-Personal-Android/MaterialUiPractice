@@ -6,7 +6,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity implements NavigationHost{
+import com.materialuipractice.interfaces.NavigationHost;
+
+public class MainActivity extends AppCompatActivity implements NavigationHost {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

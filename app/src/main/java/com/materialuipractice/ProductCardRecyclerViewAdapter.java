@@ -4,23 +4,25 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.materialuipractice.network.ImageRequester;
-import com.materialuipractice.network.ProductEntry;
+import com.bumptech.glide.Glide;
+import com.materialuipractice.data.ProductEntry;
 
 import java.util.List;
 
-public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<ProductCardViewHolder> {
+public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<ProductCardRecyclerViewAdapter.ProductCardViewHolder> {
 
     private List<ProductEntry> productList;
-    private ImageRequester imageRequester;
+    private Context mCOntext;
 
     ProductCardRecyclerViewAdapter(List<ProductEntry> productList, Context context) {
         this.productList = productList;
-        imageRequester = ImageRequester.getInstance(context);
+        mCOntext = context;
     }
 
     @NonNull
@@ -37,12 +39,31 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
             ProductEntry product = productList.get(position);
             holder.productTitle.setText(product.title);
             holder.productPrice.setText(product.price);
-            imageRequester.setImageFromUrl(holder.productImage, product.url);
+
+            Glide.with(mCOntext)
+                    .load(product.url)
+                    .centerCrop()
+                    .into(holder.productImage);
         }
     }
 
     @Override
     public int getItemCount() {
         return productList.size();
+    }
+
+
+    class ProductCardViewHolder extends RecyclerView.ViewHolder{
+
+        public ImageView productImage;
+        public TextView productTitle;
+        public TextView productPrice;
+
+        public ProductCardViewHolder(@NonNull View itemView) {
+            super(itemView);
+            productImage = itemView.findViewById(R.id.product_image);
+            productTitle = itemView.findViewById(R.id.product_title);
+            productPrice = itemView.findViewById(R.id.product_price);
+        }
     }
 }

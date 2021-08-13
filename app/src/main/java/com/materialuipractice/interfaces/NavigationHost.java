@@ -1,4 +1,4 @@
-package com.materialuipractice;
+package com.materialuipractice.interfaces;
 
 import androidx.fragment.app.Fragment;
 
