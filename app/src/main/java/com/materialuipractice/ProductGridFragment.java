@@ -1,5 +1,6 @@
 package com.materialuipractice;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.materialuipractice.data.ProductEntry;
 import com.materialuipractice.staggeregridlayout.StaggeredProductCardRecyclerViewAdapter;
@@ -30,6 +32,11 @@ public class ProductGridFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_product_grid, container, false);
+
+        // Set cut corner background for API 23+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            view.findViewById(R.id.product_grid).setBackgroundResource(R.drawable.shr_product_grid_background_shape);
+        }
 
         setHasOptionsMenu(true);
 
@@ -80,6 +87,22 @@ public class ProductGridFragment extends Fragment {
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
         }
+
+//        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
+//                getContext(),
+//                view.findViewById(R.id.product_grid)));
+
+//        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
+//                getContext(),
+//                view.findViewById(R.id.product_grid),
+//                new AccelerateDecelerateInterpolator()));
+        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
+                getContext(),
+                view.findViewById(R.id.product_grid),
+                new AccelerateDecelerateInterpolator(),
+                getContext().getResources().getDrawable(R.drawable.shr_branded_menu), // Menu open icon
+                getContext().getResources().getDrawable(R.drawable.shr_close_menu))); // Menu close icon
+
     }
 
     @Override
