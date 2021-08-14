@@ -37,6 +37,7 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
         // TODO: Put ViewHolder binding code here in MDC-102
         if (productList != null && position < productList.size()) {
             ProductEntry product = productList.get(position);
+
             holder.productTitle.setText(product.title);
             holder.productPrice.setText(product.price);
 
